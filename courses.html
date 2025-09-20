@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>ROAYA — Courses</title>
+<link href="css/bootstrap.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="/images/logo-favicon.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="css/enhance.courses.css">
+</head>
+<body class="cours-wallper">
+
+<nav class="my-navbar">
+<div class="my-container">
+<a class="my-navbar-brand" href="index.html">
+<img alt="logo" class="logo" src="images/logo.png"/>
+<span>رؤية</span>
+    </a>
+<button aria-label="Toggle navigation" class="my-burger">☰</button>
+<ul class="my-navbar-nav">
+<li><a class="my-nav-link" href="index.html"><i class="fa-solid fa-house nav-icon"></i> الرئيسية</a></li>
+<li><a class="my-nav-link" href="courses.html"><i class="fa-solid fa-book nav-icon"></i> الدورات</a></li>
+<li><a class="my-nav-link" href="my-courses.html"><i class="fa-solid fa-book-open nav-icon"></i> دوراتي</a></li>
+<li><a class="my-nav-link" href="login.html"><i class="fa-solid fa-user-plus nav-icon"></i>تسجيل / الدخول</a></li>
+<li><a class="my-nav-link" href="about.html"><i class="fa-solid fa-circle-info nav-icon"></i> عن المنصة</a></li>
+<li><a class="my-nav-link" href="contact.html"><i class="fa-solid fa-envelope nav-icon"></i> تواصل معنا</a></li>
+</ul>
+</div>
+</nav>
+
+<main class="container py-6 mt-5">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h1 class="h3"><span style="color:white;">جميع الدورات</span></h1>
+<div>
+<select class="form-select form-select-sm d-inline-block" id="filterCategory" style="width:200px;">
+<option value="">جميع الفئات</option>
+<option>البرمجة</option>
+<option>اللغةالأنجليزية</option>
+<option>الشبكات</option>
+<option>التطوير</option>
+<option>التصميم</option>
+<option>علم البيانات</option>
+</select>
+</div>
+</div>
+<div class="row g-4" data-aos="fade-up" id="coursesGrid">
+<!-- Cards injected via JS -->
+</div>
+</main>
+<!-- Confirm modal exists in index -->
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>AOS.init({once:true,duration:600});</script>
+
+<!-- === Added by Assistant: Modal for course details === -->
+</div>
+</div>
+
+
+<!-- Modal: تأكيد الاشتراك -->
+<div class="modal fade" id="confirmEnrollModal" tabindex="-1" aria-labelledby="confirmEnrollTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmEnrollTitle">تأكيد الاشتراك</h5>
+        <button type="button" class="btn-close"  aria-label="إغلاق" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="confirmEnrollText">
+        <!-- سيُملأ المحتوى ديناميكيًا من main.js -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+        <button type="button" class="btn btn-primary" id="confirmEnrollBtn">اشترك الآن</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

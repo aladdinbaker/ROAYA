@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>ROAYA — Login Or Signup</title>
+<!-- نسخة RTL من Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="/images/logo-favicon.png" rel="icon" type="image/png"/>
+
+
+<style>
+/* auth-clean-rewrite: scoped */
+#authCard{ margin:0 auto; }
+main.container{ min-height: 84vh; display:flex; align-items:center; }
+.my-input{ height:48px; border-radius:12px; }
+.my-btn{ border-radius:999px; padding-inline:18px; }
+</style>
+
+
+<style id="auth-center-responsive">
+/* Center the page vertically & horizontally */
+.auth-page main.container{
+  min-height: 100dvh;
+  display: flex; align-items: center; justify-content: center;
+  padding-block: 32px;
+}
+/* Card responsive width — large on desktop */
+:root{ --auth-card-max: 560px; }          /* default (mobile/tablet) */
+@media (min-width: 992px){ :root{ --auth-card-max: 780px; } }   /* desktop */
+@media (min-width: 1200px){ :root{ --auth-card-max: 880px; } }  /* large desktop */
+@media (min-width: 1400px){ :root{ --auth-card-max: 960px; } }  /* very large */
+
+/* Apply width to the actual card */
+.auth-page #authCard{
+  width: min(100%, var(--auth-card-max));
+  margin: 0 auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Make sure inner grid doesn't shrink it oddly */
+.auth-page #authCard .row.g-0{ margin:0; }
+</style>
+
+</head>
+<body class="auth-page">
+<!-- NAVBAR -->
+
+<nav class="my-navbar">
+<div class="my-container">
+<a class="my-navbar-brand" href="index.html">
+<img alt="logo" class="logo" src="images/logo.png"/>
+<span>رؤية</span>
+    </a>
+<button aria-label="Toggle navigation" class="my-burger">☰</button>
+<ul class="my-navbar-nav">
+<li><a class="my-nav-link" href="index.html"><i class="fa-solid fa-house nav-icon"></i> الرئيسية</a></li>
+<li><a class="my-nav-link" href="courses.html"><i class="fa-solid fa-book nav-icon"></i> الدورات</a></li>
+<li><a class="my-nav-link" href="my-courses.html"><i class="fa-solid fa-book-open nav-icon"></i> دوراتي</a></li>
+<li><a class="my-nav-link" href="login.html"><i class="fa-solid fa-user-plus nav-icon"></i>تسجيل / الدخول</a></li>
+<li><a class="my-nav-link" href="about.html"><i class="fa-solid fa-circle-info nav-icon"></i> عن المنصة</a></li>
+<li><a class="my-nav-link" href="contact.html"><i class="fa-solid fa-envelope nav-icon"></i> تواصل معنا</a></li>
+</ul>
+</div>
+</nav>
+
+
+<main class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-10">
+      <div class="card shadow-sm" id="authCard" style="width: min(100%, var(--auth-card-max)); margin:0 auto; display:block;">
+        <div class="row g-0">
+          <div class="col-12">
+            <div class="card-body">
+              <ul class="nav nav-tabs justify-content-center mb-3" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#loginPane" type="button" role="tab">تسجيل الدخول</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signupPane" type="button" role="tab">إنشاء حساب</button>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="loginPane" role="tabpanel">
+                  <form id="loginForm" novalidate>
+                    <div class="mb-3">
+                      <label for="loginEmail" class="form-label">البريد الإلكتروني</label>
+                      <input id="loginEmail" type="email" class="form-control my-input" required>
+                      <div class="invalid-feedback">أدخل بريدًا صحيحًا</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="loginPassword" class="form-label">كلمة المرور</label>
+                      <input id="loginPassword" type="password" class="form-control my-input" required minlength="8">
+                      <div class="invalid-feedback">كلمة المرور 8 أحرف على الأقل</div>
+                    </div>
+                    <div class="d-grid">
+                      <button class="btn btn-primary my-btn" type="submit">دخول</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="tab-pane fade" id="signupPane" role="tabpanel">
+                  <form id="signupForm" novalidate>
+                    <div class="mb-3">
+                      <label for="signupName" class="form-label">الاسم</label>
+                      <input id="signupName" type="text" class="form-control my-input" required minlength="2">
+                      <div class="invalid-feedback">أدخل اسمًا صحيحًا</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="signupEmail" class="form-label">البريد الإلكتروني</label>
+                      <input id="signupEmail" type="email" class="form-control my-input" required>
+                      <div class="invalid-feedback">أدخل بريدًا صحيحًا</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="signupPassword" class="form-label">كلمة المرور</label>
+                      <input id="signupPassword" type="password" class="form-control my-input" required minlength="8">
+                      <div class="invalid-feedback">كلمة المرور 8 أحرف على الأقل</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="signupConfirm" class="form-label">تأكيد كلمة المرور</label>
+                      <input id="signupConfirm" type="password" class="form-control my-input" required minlength="8">
+                      <div class="invalid-feedback">كلمة المرور غير متطابقة</div>
+                    </div>
+                    <div class="d-grid">
+                      <button class="btn btn-success my-btn" type="submit">إنشاء حساب</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/main.js"></script>
+
+
+<script>
+// auth-clean-rewrite (scoped)
+(function(){
+  function $(s,r=document){return r.querySelector(s)}
+  function $all(s,r=document){return Array.from(r.querySelectorAll(s))}
+  function loadUsers(){try{return JSON.parse(localStorage.getItem('users')||'[]')}catch(e){return[]}}
+  function saveUsers(list){localStorage.setItem('users', JSON.stringify(list))}
+  async function hash(s){
+    if(window.crypto&&crypto.subtle){
+      const buf=await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+      return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('')
+    }
+    let h=0; for(let i=0;i<s.length;i++){h=(h<<5)-h+s.charCodeAt(i); h|=0} return 'x'+Math.abs(h)
+  }
+  $all('input[required]').forEach(inp=> inp.addEventListener('input', ()=> inp.classList.remove('is-invalid')));
+  const loginForm = $('#loginForm'), signupForm = $('#signupForm');
+  if(location.hash==='#signup'){ const t=$('#signup-tab'); t && t.click(); }
+
+  async function onSignup(e){
+    e.preventDefault();
+    const name  = $('#signupName')?.value?.trim() || '';
+    const email = ($('#signupEmail')?.value || '').trim().toLowerCase();
+    const pass  = $('#signupPassword')?.value || '';
+    const conf  = $('#signupConfirm')?.value || '';
+    if(!name){ $('#signupName')?.classList.add('is-invalid'); return; }
+    if(!email || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){ $('#signupEmail')?.classList.add('is-invalid'); return; }
+    if(!pass || pass.length<8){ $('#signupPassword')?.classList.add('is-invalid'); return; }
+    if(conf!==pass){ $('#signupConfirm')?.classList.add('is-invalid'); return; }
+    const users = loadUsers();
+    if(users.some(u=>u.email===email)){ alert('هذا البريد مسجّل مسبقًا'); return; }
+    const hpw = await hash(email+':'+pass);
+    users.push({name,email,hpw,createdAt:Date.now()}); saveUsers(users);
+    localStorage.setItem('currentUser', JSON.stringify({name,email}));
+    alert('لقد تم إنشاء حسابك بنجاح'); location.href='index.html';
+  }
+
+  async function onLogin(e){
+    e.preventDefault();
+    const email = ($('#loginEmail')?.value || '').trim().toLowerCase();
+    const pass  = $('#loginPassword')?.value || '';
+    if(!email || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)){ $('#loginEmail')?.classList.add('is-invalid'); return; }
+    if(!pass || pass.length<8){ $('#loginPassword')?.classList.add('is-invalid'); return; }
+    const users = loadUsers();
+    const u = users.find(u=>u.email===email);
+    if(!u){
+      const t=document.getElementById('signup-tab'); t && t.click();
+      const se=document.getElementById('signupEmail'); if(se) se.value=email;
+      alert('لا يوجد حساب بهذا البريد — قم بإنشاء حساب الآن.');
+      return;
+    }
+    const hpw = await hash(email+':'+pass);
+    if(hpw!==u.hpw){ alert('كلمة المرور غير صحيحة'); return; }
+    localStorage.setItem('currentUser', JSON.stringify({name:u.name,email:u.email}));
+    location.href='index.html';
+  }
+
+  loginForm && loginForm.addEventListener('submit', onLogin);
+  signupForm && signupForm.addEventListener('submit', onSignup);
+})();
+</script>
+
+</body>
+</html>

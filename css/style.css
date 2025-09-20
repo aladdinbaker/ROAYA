@@ -1,0 +1,813 @@
+:root {
+  --bg: #0b1220;
+  --primary: #0757d1;
+  --muted: #6c757d;
+  --card: #ffffff;
+  --glass: rgba(255, 255, 255, 0.06);
+  --radius: 12px;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+.navbar {
+  background: linear-gradient(
+    90deg,
+    rgba(11, 18, 32, 0.95),
+    rgba(11, 18, 32, 0.95)
+  );
+}
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.brand-text {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.hero {
+  padding: 100px 0 60px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+}
+.feature i {
+  color: var(--primary);
+}
+.btn-primary {
+  background: var(--primary);
+  border: 0;
+  box-shadow: 0 6px 18px rgba(7, 87, 209, 0.18);
+  transition: all 0.25s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+}
+.bg-light {
+  background: #f7f9fc !important;
+}
+.logo-img {
+  height: 50px;
+  width: auto;
+}
+.brand-text {
+  color: rgb(31, 95, 184);
+} /* Courses grid */
+.card.course {
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  border: 0;
+}
+.card.course:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+.card.course .thumb {
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  width: 100%;
+}
+.course-badges {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+} /* Responsive behavior */
+@media (max-width: 992px) {
+  .hero {
+    padding: 80px 0 40px;
+  }
+}
+@media (max-width: 576px) {
+  .logo {
+    width: 36px;
+    height: 36px;
+  }
+  .hero {
+    padding: 60px 0 30px;
+  }
+} /* Forms */
+.card .form-control:focus {
+  box-shadow: 0 8px 20px rgba(7, 87, 209, 0.08);
+  border-color: var(--primary);
+} /* Footer */
+.footer {
+  background: #071021;
+  color: #bfc9d9;
+}
+.footer a:hover {
+  text-decoration: underline;
+} /* small utilities */
+.mt-6 {
+  margin-top: 3.5rem;
+}
+.py-6 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+} /* animation helpers */
+.fade-up {
+  transform: translateY(8px);
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.fade-up.show {
+  transform: translateY(0);
+  opacity: 1;
+} /* ==== NAV link states (Bootstrap specific) ==== */ /* Base */
+.navbar .nav-link {
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  padding: 0.5rem 0.75rem;
+} /* Order: link -> visited -> hover -> active */
+.navbar-dark .navbar-nav .nav-link:link {
+  color: #ffffff;
+}
+.navbar-dark .navbar-nav .nav-link:visited {
+  color: #d1d1d1;
+} /* only color takes effect for :visited */
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+  color: #ffd700;
+  background-color: #0056b3;
+}
+.navbar-dark .navbar-nav .nav-link:active {
+  color: #ffd700;
+} /* ==== مخصص: بدائل Bootstrap ==== */ /* الأزرار */
+.my-btn {
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.my-btn:hover {
+  background-color: #0b5ed7;
+}
+.my-btn-success {
+  background-color: #198754;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.my-btn-success:hover {
+  background-color: #157347;
+}
+.my-btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.my-btn-danger:hover {
+  background-color: #bb2d3b;
+} /* الإدخالات */
+.my-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+span {
+  color: #f3f4f6;
+} /* الـ Navbar */
+.my-navbar {
+  background-color: #343a40;
+  padding: 35px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1%;
+}
+.my-navbar-brand {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+.my-navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.my-nav-link {
+  color: #fff;
+  margin-left: 15px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.my-nav-link:hover {
+  color: #ffd700; /* background-color: #0b5ed7; */
+} /* ==== Custom Nav (CSS only) ==== */
+.my-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 56px;
+  background-color: #212529;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+.my-container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
+  padding-left: 80px;
+}
+.my-navbar-brand {
+  position: absolute; /* ثبّت الشعار مستقل عن باقي العناصر */
+  right: 20px; /* بداية الـ RTL = يمين */
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%); /* توسيط عمودي داخل النافبار */
+  margin: 0 !important;
+  z-index: 2; /* فوق أي عناصر خلفه */
+  display: flex;
+  align-items: center;
+}
+.my-navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.my-navbar-nav li {
+  margin-left: 20px;
+}
+.my-nav-link {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  font-size: 1rem;
+  line-height: 56px;
+}
+.my-nav-link:hover {
+  color: #ffd700;
+  background-color: #0d6efd;
+}
+.my-burger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  left: 20px !important;
+}
+@media (max-width: 768px) {
+  .my-navbar-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #212529;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    width: 100%;
+    text-align: right;
+  }
+  .my-navbar-nav.show {
+    display: flex;
+  }
+  .my-burger {
+    display: block;
+  }
+}
+body {
+  padding-top: 70px;
+} /* ==== RTL alignment: brand to the far right, then nav, then burger ==== */
+.my-navbar {
+  direction: rtl;
+}
+.my-container {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+.my-navbar-brand {
+  order: 0;
+  margin-inline-end: 20px;
+  margin-inline-start: 0;
+}
+.my-navbar-nav {
+  order: 1;
+}
+.my-burger {
+  order: 2;
+}
+.my-navbar-nav li {
+  margin-inline-end: 20px;
+  margin-inline-start: 0;
+} /* === nav RTL مرتب للشعار يمين والقائمة بجانبه === */
+.my-navbar {
+  direction: rtl;
+}
+.my-container {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px; /* المسافة بين الشعار والقائمة */
+}
+.my-navbar-brand {
+  order: 0;
+  margin-left: 20px; /* إزاحة بسيطة بين الشعار والقائمة */
+}
+.my-navbar-nav {
+  order: 1;
+  display: flex;
+  gap: 15px; /* تقارب الروابط */
+}
+.my-burger {
+  order: 2;
+  margin-right: auto; /* البرجر يروح يسار */
+}
+.my-navbar-nav li {
+  margin: 0; /* إزالة الهوامش القديمة */
+} /* === Hero section adjustments === */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+} /* نصوص hero بارزة */
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.hero-content p {
+  font-size: 1.2rem;
+  color: #f1f1f1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+.hero-content .my-btn {
+  background-color: #0d6efd;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.hero-content .my-btn:hover {
+  background-color: #0b5ed7;
+} /* ==== Burger Menu Professional Fix ==== */
+@media (max-width: 768px) {
+  .my-navbar-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #212529;
+    position: absolute;
+    top: 56px;
+    right: 0;
+    width: 100%;
+    text-align: right;
+  }
+  .my-navbar-nav.show {
+    display: flex;
+  }
+} /* ===== Burger Menu Fix ===== */
+.my-navbar-nav {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+.my-burger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+} /* Mobile View */
+@media (max-width: 768px) {
+  .my-navbar-nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(14, 13, 13, 0.634);
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: auto;
+    width: 200px;
+    padding: 10px;
+    border-radius: 3px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  .my-navbar-nav.active {
+    display: flex;
+  }
+  .my-burger {
+    display: block;
+    width: 0;
+    left: 0;
+    right: 0;
+  }
+} /* ===== WowSlider Background Fix ===== */
+#wowslider-container1 {
+  width: 100% !important;
+  max-width: 100%;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b); /* خلفية متناسقة */
+  padding: 20px 0;
+}
+#wowslider-container1 .ws_images {
+  margin: 0 auto;
+  max-width: 100%; /* مركز السلايدر */
+} /* ===== Make WowSlider Fullscreen ===== */
+#wowslider-container1 {
+  width: 100% !important;
+  height: 100vh !important;
+  max-width: 100%;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b);
+  position: relative;
+  overflow: hidden;
+}
+#wowslider-container1 .ws_images ul li img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+} /* ===== Ultra Modern Fancy Buttons ===== */
+.slider-center-buttons.fancy-modern {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  z-index: 1000;
+  padding: 30px 35px;
+  background: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(1px);
+  border-radius: 25px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0);
+  animation: fadeInUp 1s ease both;
+}
+.slider-center-buttons.fancy-modern .slider-btn {
+  background: linear-gradient(135deg, #6a11cb, #ff6fd8, #00c8ff);
+  background-size: 200% 200%;
+  color: #ffffff;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 240px;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  animation: gradientShift 6s ease infinite;
+}
+.slider-center-buttons.fancy-modern .slider-btn:hover {
+  transform: translateY(-5px) scale(1.07);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+} /* ===== WowSlider Edge to Edge Fix ===== */
+#wowslider-container1 {
+  width: 100% !important;
+  height: 100vh !important;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+}
+#wowslider-container1 .ws_images ul li img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.ws_prev:hover,
+.ws_next:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+أيقونات الأسهم .ws_prev:before {
+  content: "◀";
+}
+.ws_next:before {
+  content: "▶";
+} /* ===== Modern Bullets ===== */
+.ws_bullets a {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  margin: 0 5px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.ws_bullets a.ws_sel {
+  background: linear-gradient(135deg, #6a11cb, #ff6fd8);
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+} /* ===== Edge to Edge WowSlider ===== */
+#wowslider-container1 {
+  width: 100% !important;
+  height: 100vh !important;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#wowslider-container1 .ws_images ul li img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+} /* ===== Fix WowSlider Image Distortion (remove oval edges) ===== */
+#wowslider-container1 .ws_images ul li img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100vh !important;
+  border-radius: 0 !important;
+} /* ===== Force WowSlider into Rectangle (No Oval) ===== */
+#wowslider-container1,
+#wowslider-container1 .ws_images,
+#wowslider-container1 .ws_images ul,
+#wowslider-container1 .ws_images ul li,
+#wowslider-container1 .ws_images ul li img {
+  border-radius: 0 !important;
+  clip-path: none !important;
+  overflow: hidden !important;
+} /* ===== Modern Fullscreen Edge-to-Edge Slider Template ===== */
+#wowslider-container1 {
+  width: 100% !important;
+  height: 100vh !important;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+} /* الصور ممتدة بالكامل */
+#wowslider-container1 .ws_images ul li img {
+  width: 100% !important;
+  height: 100vh !important;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0 !important;
+  clip-path: none !important;
+  display: block;
+}
+.ws_prev {
+  left: 15px;
+} /* قريب من الحافة اليسرى */
+.ws_next {
+  right: 15px;
+} /* قريب من الحافة اليمنى */
+.ws_prev:hover,
+.ws_next:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+.ws_prev:before {
+  content: "❮";
+}
+.ws_next:before {
+  content: "❯";
+} /* Bullets (Modern Rectangles) */
+.ws_bullets {
+  bottom: 25px !important;
+}
+.ws_bullets a {
+  width: 28px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 3px;
+  margin: 0 5px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.ws_bullets a.ws_sel {
+  background: linear-gradient(90deg, #6a11cb, #ff6fd8);
+  width: 38px;
+} /* ===== Typing Text Effect ===== */
+#typing-text {
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.8;
+  max-width: 650px;
+  font-weight: 400;
+  display: inline-block;
+  white-space: pre-line;
+} /* ===== Updated Intro Text (Bigger & Two Lines) ===== */
+.slider-center-buttons .intro-text {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.9;
+  max-width: 700px;
+  font-weight: 500;
+  opacity: 0.95;
+} /* ===== Intro Text Styling (Fixed) ===== */
+.slider-center-buttons .intro-text {
+  margin-top: 30px;
+  font-size: 22px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.9;
+  max-width: 700px;
+  font-weight: 500;
+  opacity: 1;
+  z-index: 1001;
+  position: relative;
+}
+
+.nav-icon {
+  color: #ffffff !important;
+  margin-left: 8px;
+  font-size: 1.1rem;
+  line-height: 1;
+  vertical-align: -1px;
+}
+
+.cours-wallper {
+  background-color: #5f7083bc;
+}
+
+.page-color {
+  background: linear-gradient(#6387aebc);
+}
+
+/* auth-modern-inline */
+:root {
+  --auth-bg1: #158bd9;
+  --auth-bg2: #402e90;
+  --auth-card: rgba(238, 180, 180, 0.85);
+  --auth-shadow: 0 24px 60px rgba(2, 6, 23, 0.08);
+}
+body:has(#loginForm) {
+  min-height: 100vh;
+  background: radial-gradient(
+      900px 500px at 15% 20%,
+      var(--auth-bg1),
+      transparent 65%
+    ),
+    radial-gradient(900px 500px at 85% 80%, var(--auth-bg2), transparent 65%),
+    #f8fafc;
+}
+.card.shadow-sm {
+  border-radius: 20px;
+  box-shadow: var(--auth-shadow) !important;
+  overflow: hidden;
+}
+#loginForm,
+#signupForm {
+  padding-top: 8px;
+}
+#loginForm .my-input,
+#signupForm .my-input {
+  height: 48px;
+  border-radius: 12px;
+}
+#loginForm .form-label,
+#signupForm .form-label {
+  font-weight: 600;
+}
+#loginForm .my-btn,
+#signupForm .my-btn {
+  border-radius: 999px;
+  padding-inline: 18px;
+}
+#loginForm input:required:invalid,
+#signupForm input:required:invalid {
+  box-shadow: 0 0 0 0.15rem rgba(239, 68, 68, 0.12);
+}
+#loginForm input:required:valid,
+#signupForm input:required:valid {
+  border-color: #10b981 !important;
+}
+#loginForm input:focus,
+#signupForm input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.15);
+}
+
+
+/* Team hover animations: card lift+scale; image glow + subtle shake */
+.team-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.team-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.18);
+}
+.team-card img.rounded-circle {
+  transition: box-shadow 0.5s ease;
+}
+.team-card:hover img.rounded-circle {
+  animation: glow-pulse 1.6s ease-in-out infinite,
+    shake-subtle 0.35s ease-in-out 1;
+  box-shadow: 0 0 14px rgba(0, 123, 255, 0.6);
+}
+
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(0, 123, 255, 0.75);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.35);
+  }
+}
+@keyframes shake-subtle {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-1px, 1px) rotate(0.3deg);
+  }
+  50% {
+    transform: translate(1px, -1px) rotate(-0.3deg);
+  }
+  75% {
+    transform: translate(-1px, 1px) rotate(0.2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}

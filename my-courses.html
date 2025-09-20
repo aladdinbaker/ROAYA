@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>ROAYA — MyCourses</title>
+<!-- استخدام نسخة RTL من Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<link href="/images/logo-favicon.png" rel="icon" type="image/png"/>
+  <link rel="stylesheet" href="css/enhance.courses.css">
+
+<style>
+/* my-courses: match Courses page hover only */
+#myCoursesGrid .card.course{transition:transform .2s ease,box-shadow .2s ease;border-radius:1rem}
+#myCoursesGrid .card.course:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(0,0,0,.12)}
+</style>
+
+</head>
+<body class="page-color">
+<!-- NAVBAR -->
+
+<nav class="my-navbar">
+<div class="my-container">
+<a class="my-navbar-brand" href="index.html">
+<img alt="logo" class="logo" src="images/logo.png"/>
+<span>رؤية</span>
+    </a>
+<button aria-label="Toggle navigation" class="my-burger">☰</button>
+<ul class="my-navbar-nav">
+<li><a class="my-nav-link" href="index.html"><i class="fa-solid fa-house nav-icon"></i> الرئيسية</a></li>
+<li><a class="my-nav-link" href="courses.html"><i class="fa-solid fa-book nav-icon"></i> الدورات</a></li>
+<li><a class="my-nav-link" href="my-courses.html"><i class="fa-solid fa-book-open nav-icon"></i> دوراتي</a></li>
+<li><a class="my-nav-link" href="login.html"><i class="fa-solid fa-user-plus nav-icon"></i>تسجيل / الدخول</a></li>
+<li><a class="my-nav-link" href="about.html"><i class="fa-solid fa-circle-info nav-icon"></i> عن المنصة</a></li>
+<li><a class="my-nav-link" href="contact.html"><i class="fa-solid fa-envelope nav-icon"></i> تواصل معنا</a></li>
+</ul>
+</div>
+</nav>
+
+<main class="container py-6 mt-5">
+<section class="container my-4 mycourses-hero">
+  <div class="p-4 rounded-4" style="background:linear-gradient(135deg,#22d3ee 0%, #6366f1 100%);color:#fff;">
+    <h1 class="mb-1" style="font-weight:800">دوراتي</h1>
+    <p class="mb-0">جميع الدورات التي اشتركت بها تظهر هنا — اضغط "مشاهدة الدروس" لتصفح المحتوى.</p>
+  </div>
+</section>
+
+<h1 class="h3 mb-4">الدورات المسجلة لدي</h1>
+<div class="row g-4" id="myCoursesGrid">
+<!-- سيتم إدراج الدورات بواسطة JS -->
+</div>
+</main>
+<!-- نافذة الفيديوهات -->
+<div class="modal fade" id="videosModal" tabindex="-1">
+<div class="modal-dialog modal-xl modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="videosModalTitle">فيديوهات الدورة</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body" id="videosModalBody">
+<!-- سيتم إدراج الفيديوهات هنا -->
+</div>
+</div>
+</div>
+</div>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+<script>AOS.init({once:true,duration:600});</script>
+
+<!-- === Added by Assistant: My Courses modal === -->
+<div id="myCourseModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeMyCourseModal()">&times;</span>
+    <h2 id="myCourseTitle"></h2>
+    <p id="myCourseDesc"></p>
+    <button id="myVideosBtn" onclick="showMyVideos()">🎥 مشاهدة الدروس</button>
+    <table id="myVideoTable" class="video-table">
+      <thead><tr><th>#</th><th>عنوان الدرس</th><th>رابط الفيديو</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  if (typeof renderMyCourses === 'function') renderMyCourses();
+});
+</script>
+
+<script>
+(function(){
+  function renderWhenReady(){
+    try{
+      if (typeof renderMyCourses === 'function' && Array.isArray(window.COURSES) && window.COURSES.length){
+        renderMyCourses();
+        return;
+      }
+    }catch(e){}
+    setTimeout(renderWhenReady, 80);
+  }
+  document.addEventListener('DOMContentLoaded', renderWhenReady);
+  window.addEventListener('pageshow', renderWhenReady);
+})();
+</script>
+
+
+<script>
+(function(){
+  function addFromQuery(){
+    try{
+      var p = new URLSearchParams(window.location.search);
+      var id = p.get('just_enrolled');
+      if(!id) return;
+      var arr = JSON.parse(localStorage.getItem('enrolled')||'[]');
+      if(!arr.includes(id)) { arr.push(id); localStorage.setItem('enrolled', JSON.stringify(arr)); }
+    }catch(e){}
+  }
+  function renderWhenReady(){
+    if (typeof renderMyCourses==='function' && Array.isArray(window.COURSES) && window.COURSES.length){
+      renderMyCourses(); return;
+    }
+    setTimeout(renderWhenReady, 60);
+  }
+  document.addEventListener('DOMContentLoaded', function(){ addFromQuery(); renderWhenReady(); });
+  window.addEventListener('pageshow', function(){ addFromQuery(); renderWhenReady(); });
+})();
+</script>
+
+
+
+<script>
+// my-courses: ensure hover applies to cards like Courses page (with auto-reapply)
+(function(){
+  function apply(){
+    var grid = document.getElementById('myCoursesGrid'); if(!grid) return;
+    grid.querySelectorAll('.card').forEach(function(card){ card.classList.add('course'); });
+  }
+  function boot(){
+    apply();
+    var grid = document.getElementById('myCoursesGrid'); if(!grid) return;
+    try{
+      // Re-apply whenever the grid children change (e.g., after Leave re-render)
+      var mo = new MutationObserver(function(){ apply(); });
+      mo.observe(grid, {childList:true, subtree:true});
+    }catch(e){}
+  }
+  if(document.readyState!=='loading') boot(); else document.addEventListener('DOMContentLoaded', boot);
+  window.addEventListener('pageshow', boot);
+  // Just in case: after clicking "Leave", re-apply on next tick
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.btn-leave');
+    if(btn){ setTimeout(apply, 0); }
+  });
+})();
+</script>
+
+
+</body>
+</html>

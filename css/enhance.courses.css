@@ -1,0 +1,17 @@
+
+/* Subtle pro enhancements shared by pages */
+.card.course{
+  transition: transform .2s ease, box-shadow .2s ease;
+  border-radius: 1rem;
+}
+.card.course:hover{ transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,.12); }
+.badge-level{ font-weight:700; border-radius:999px; }
+.videos-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; }
+.video-thumb{ position:relative; border-radius:12px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,.08); }
+.video-thumb img{ width:100%; height:140px; object-fit:cover; display:block; }
+.video-thumb .play{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.2)); color:#fff; font-weight:800;
+  font-size:18px; letter-spacing:.5px;
+}
+.videos-title{ font-weight:700; margin-top:.5rem; font-size:.95rem; }
