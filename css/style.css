@@ -810,3 +810,9 @@ body:has(#loginForm) {
     transform: translate(0, 0) rotate(0deg);
   }
 }
+.logo_picture{
+  width: 100%;
+  /* height: 70%; */
+  display: flex;
+  border: #005fee;
+}
