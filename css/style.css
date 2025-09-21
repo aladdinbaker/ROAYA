@@ -443,8 +443,7 @@ html {
     left: 0;
     right: auto;
     width: 200px;
-    padding: 10px;
-    border-radius: 3px 0;
+    padding: 50px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
   .my-navbar-nav.active {
